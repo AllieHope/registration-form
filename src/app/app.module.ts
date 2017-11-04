@@ -4,11 +4,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { RegistrationFormComponent } from './components/registration-form/registration-form.component';
+import { ErrorMessageComponent } from './components/error-message/error-message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationFormComponent
+    RegistrationFormComponent,
+    ErrorMessageComponent
   ],
   imports: [
     BrowserModule,

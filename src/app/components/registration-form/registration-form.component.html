@@ -1,28 +1,35 @@
-<form [formGroup]="registrationForm" >
-    <div class="form-group">
-      <label for="first-name" class="control-label">First Name</label>
-      <input type="text" class="form-control" id="first-name" formControlName="firstName">
-    </div>
-    <div class="form-group">
-      <label for="last-name" class="control-label">Last Name</label>
-      <input type="text" class="form-control" id="last-name" formControlName="lastName">
-    </div>
-    <div class="form-group">
-        <label for="username" class="control-label">Username</label>
-        <input type="text" class="form-control" id="username" formControlName="username">
-    </div>
-    <div class="form-group">
-        <label for="password" class="control-label">Password</label>
-        <input type="text" class="form-control" id="password" formControlName="password">
-        <small id="passwordHelp" class="form-text text-muted">At least 8 characters.</small>
-    </div>
-    <div class="form-group">
-        <label for="email" class="control-label">Email</label>
-        <input type="text" class="form-control" id="email" formControlName="email">
-        <small id="emailHelp" class="form-text text-muted">An activation link will be sent to this account.</small>
-    </div>
-    <div class="form-group">
-        <small>By clicking Submit, I agree that I have read and agree with the <a href="#">Terms and Conditions.</a></small>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+<form [formGroup]="registrationForm">
+  <div class="form-group">
+    <label for="first" class="control-label">First Name</label>
+    <input type="text" class="form-control" id="first" formControlName="first"/>
+    <error-message [control]="registrationForm.controls.first"></error-message>
+  </div>
+  <div class="form-group">
+    <label for="last" class="control-label">Last Name</label>
+    <input type="text" class="form-control" id="last" formControlName="last">
+    <error-message [control]="registrationForm.controls.last"></error-message>
+  </div>
+  <div class="form-group">
+    <label for="username" class="control-label">Username</label>
+    <input type="text" class="form-control" id="username" formControlName="username">
+    <error-message [control]="registrationForm.controls.username"></error-message>
+  </div>
+  <div class="form-group">
+    <label for="password" class="control-label">Password</label>
+    <input type="password" class="form-control" id="password" formControlName="password">
+    <small class="form-text text-muted">
+      At least 8 characters.</small>
+    <error-message [control]="registrationForm.controls.password"></error-message>
+  </div>
+  <div class="form-group">
+    <label for="email" class="control-label">Email</label>
+    <input type="text" class="form-control" id="email" formControlName="email">
+    <small class="form-text text-muted">
+      An activation link will be sent to this account.</small>
+    <error-message [control]="registrationForm.controls.email"></error-message>    
+  </div>
+  <div class="form-group">
+    <small>By clicking Submit, I agree that I have read and agree with the <a href="#">Terms and Conditions.</a></small>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!registrationForm.valid">Submit</button>
+</form>
